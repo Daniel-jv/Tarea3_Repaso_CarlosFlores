@@ -59,7 +59,8 @@ public class Tarea3_Repaso_CarlosFlores {
                 case 2:{
                     System.out.println("\n---Numeros primero");
                     String nums_p = "";
-                    System.out.print("Ingrese una cadena:");
+                    System.out.print("Ingrese una cadena: ");
+                    leer.nextLine();
                     String cad = leer.nextLine();
                     for (int i = 0; i < cad.length(); i++) {
                         if((int)cad.charAt(i) > 47 && (int)cad.charAt(i) < 58 ){
@@ -77,7 +78,13 @@ public class Tarea3_Repaso_CarlosFlores {
                 }//fin case 2
                 
                 case 3:{
-                    
+                    System.out.println("\n---Ordenar alfabéticamente");
+                    System.out.print("Ingrese una cadena: ");
+                    leer.nextLine();
+                    String cad = leer.nextLine();
+                    System.out.print("Orden alfabetico: ");
+                    int amount_nums = alphabet(cad);
+                    System.out.println("Valor entero retornado: "+amount_nums);
                     System.out.println();
                     break;
                 }//fin case 3
@@ -117,6 +124,26 @@ public class Tarea3_Repaso_CarlosFlores {
         }while(var);//fin do while
         
     }//fin main
+    
+    public static int alphabet(String cad){
+        int amount_nums = 0;
+        int search = 97;
+        String orden = "";
+        cad = cad.toLowerCase();
+        for (int i = 0; i < cad.length(); i++) {
+            if(cad.charAt(i) < 58 && cad.charAt(i) > 47){
+                amount_nums++;
+            }
+            for (int j = 0; j < cad.length(); j++) {
+                if(search == cad.charAt(j)){
+                    orden += cad.charAt(j);
+                }
+            }
+            search++;
+        }
+        System.out.println(orden);
+        return amount_nums;
+    }//fin alphabet
     
     public static void reemplazar(String nums_letr){
         int op = 0;
