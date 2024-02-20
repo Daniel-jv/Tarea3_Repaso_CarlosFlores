@@ -38,31 +38,38 @@ public class Tarea3_Repaso_CarlosFlores {
                         }
                     }
                     System.out.println("Cadena modificada: "+nums_p);
+                    System.out.println();
                     break;
                 }//fin case 2
                 
                 case 3:{
                     
+                    System.out.println();
                     break;
                 }//fin case 3
                 
                 case 4:{
                     
+                    System.out.println();
                     break;
                 }//fin case 4
                 
                 case 5:{
-                    
+                    System.out.println("\n---Jugando con arreglos");
+                    print(fill());
+                    System.out.println("\n");
                     break;
                 }//fin case 5
                 
                 case 6:{
-                    
+                    System.out.println("\nHa salido del programa, nos vemos.");
+                    var = false;
                     break;
                 }//fin case 6
                 
                 default:{
-                    
+                    System.out.println("\nOpcion no valida, intente de nuevo");
+                    System.out.println();
                     break;
                 }//fin default
                 
@@ -71,5 +78,26 @@ public class Tarea3_Repaso_CarlosFlores {
         }while(var);//fin do while
         
     }//fin main
+    
+    
+    public static int [] fill(){
+        int array [] =  new int [10];
+        int rest = 10;
+        for (int i = 0; i < 10;i++) {
+            System.out.println("Faltan "+rest+" numeros");
+            rest--;
+            System.out.print("Ingrese un numero: ");
+            int num = leer.nextInt();
+            array[i] = num;
+        }
+        return array;
+    }//fin fill
+    
+    public static void print(int arreglo []){
+        System.out.print("\nARREGLO = ");
+        for (int i = 0; i < arreglo.length; i++) {
+            System.out.print("["+arreglo[i]+"]");
+        }
+    }//fin print
     
 }//fin class
