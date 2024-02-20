@@ -26,7 +26,7 @@ public class Tarea3_Repaso_CarlosFlores {
                     System.out.println("\n---Numeros primero");
                     String nums_p = "";
                     System.out.print("Ingrese una cadena:");
-                    String cad = leer.next();
+                    String cad = leer.nextLine();
                     for (int i = 0; i < cad.length(); i++) {
                         if((int)cad.charAt(i) > 47 && (int)cad.charAt(i) < 58 ){
                             nums_p  += cad.charAt(i);
@@ -49,8 +49,12 @@ public class Tarea3_Repaso_CarlosFlores {
                 }//fin case 3
                 
                 case 4:{
-                    
-                    System.out.println();
+                    System.out.println("\n---Codificar cadenas");
+                    System.out.print("Ingrese una cadena: ");
+                    leer.nextLine();
+                    String nums_letr = leer.nextLine();
+                    reemplazar(nums_letr);
+                    System.out.println("\n");
                     break;
                 }//fin case 4
                 
@@ -79,6 +83,43 @@ public class Tarea3_Repaso_CarlosFlores {
         
     }//fin main
     
+    public static void reemplazar(String nums_letr){
+        int op = 0;
+        nums_letr = nums_letr.toLowerCase();
+        System.out.print("Codificado: ");
+        for (int i = 0; i < nums_letr.length(); i++) {
+            if((int)nums_letr.charAt(i) < 123 && (int)nums_letr.charAt(i) > 96){
+                op = 1;
+            }else if((int)nums_letr.charAt(i) < 58 && (int)nums_letr.charAt(i) > 47){
+                op = 2;
+            }else if((int)nums_letr.charAt(i) == 32){
+                op = 3;
+            }
+            switch(op){
+                case 1:{
+                    int print = (int)nums_letr.charAt(i) - 96;
+                    System.out.print(print);
+                    if(i < nums_letr.length()-1 && nums_letr.charAt(i+1) != 32){
+                        System.out.print("-");
+                    }
+                    break;
+                }
+                case 2:{
+                    int prove = (int)nums_letr.charAt(i) + 16;
+                    char print = (char) prove;
+                    System.out.print(print);
+                    if(i < nums_letr.length()-1 && nums_letr.charAt(i+1) != 32){
+                        System.out.print("-");
+                    }
+                    break;
+                }
+                case 3:{
+                    System.out.print(" ");
+                    break;
+                }
+            }
+        }
+    }//fin remplazar
     
     public static int [] fill(){
         int array [] =  new int [10];
