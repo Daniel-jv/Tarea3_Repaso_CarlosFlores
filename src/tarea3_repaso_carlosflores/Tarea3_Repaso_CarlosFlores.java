@@ -18,7 +18,41 @@ public class Tarea3_Repaso_CarlosFlores {
             switch(op){
                 
                 case 1:{
-                    
+                    System.out.println("\n---Veamos si podemos formar la palabra");
+                    String Longer = "";
+                    String Shorter = "";
+                    System.out.print("Cadena 1: ");
+                    leer.nextLine();
+                    String cad1 = leer.nextLine();
+                    System.out.print("Cadena 2: ");
+                    String cad2 = leer.nextLine();
+                    if(cad1.contentEquals(cad2)){
+                        System.out.println("Las cadenas son iguales, intente de nuevo.\n");
+                        continue;
+                    }else if(cad1.length() == cad2.length()){
+                        System.out.println("Las cadenas miden lo mismo, intente de nuevo.\n");
+                        continue;
+                    }else if(cad1.length() > cad2.length()){
+                        Longer = cad1;
+                        Shorter = cad2;
+                    }else{
+                        Longer = cad2;
+                        Shorter = cad1;
+                    }
+                    String comparison = "";
+                    for (int i = 0; i < Shorter.length(); i++) {
+                        for (int j = 0; j < Longer.length(); j++) {
+                            if(Shorter.charAt(i) == Longer.charAt(j)){
+                                comparison += Longer.charAt(j);
+                                break;
+                            }
+                        }
+                    }
+                    if(comparison.contentEquals(Shorter)){
+                        System.out.println("SI se puede armar "+Shorter+"\n");
+                    }else{
+                        System.out.println("NO se puede armar "+Shorter+"\n");
+                    }
                     break;
                 }//fin case 1
                 
@@ -60,7 +94,8 @@ public class Tarea3_Repaso_CarlosFlores {
                 
                 case 5:{
                     System.out.println("\n---Jugando con arreglos");
-                    print(fill());
+                    int array [] =  new int [10];
+                    print(fill(array));
                     System.out.println("\n");
                     break;
                 }//fin case 5
@@ -121,8 +156,7 @@ public class Tarea3_Repaso_CarlosFlores {
         }
     }//fin remplazar
     
-    public static int [] fill(){
-        int array [] =  new int [10];
+    public static int [] fill(int array []){
         int rest = 10;
         for (int i = 0; i < 10;i++) {
             System.out.println("Faltan "+rest+" numeros");
